@@ -10,11 +10,14 @@
 		02F61B161ABB80EA00A4359F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B151ABB80EA00A4359F /* main.m */; };
 		02F61B191ABB80EA00A4359F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B181ABB80EA00A4359F /* AppDelegate.m */; };
 		02F61B1C1ABB80EA00A4359F /* Observatory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B1A1ABB80EA00A4359F /* Observatory.xcdatamodeld */; };
-		02F61B1F1ABB80EA00A4359F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B1E1ABB80EA00A4359F /* ViewController.m */; };
 		02F61B221ABB80EA00A4359F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F61B201ABB80EA00A4359F /* Main.storyboard */; };
 		02F61B241ABB80EA00A4359F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02F61B231ABB80EA00A4359F /* Images.xcassets */; };
 		02F61B271ABB80EA00A4359F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F61B251ABB80EA00A4359F /* LaunchScreen.xib */; };
 		02F61B331ABB80EA00A4359F /* ObservatoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B321ABB80EA00A4359F /* ObservatoryTests.m */; };
+		02F61B431ABB84A500A4359F /* ReposTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B421ABB84A500A4359F /* ReposTableViewController.m */; };
+		02F61B471ABB86CF00A4359F /* AFGithubClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B461ABB86CF00A4359F /* AFGithubClient.m */; };
+		02F61B4A1ABB8FE700A4359F /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B491ABB8FE700A4359F /* Repo.m */; };
+		6BEA14D952B1B2EACD3EC8D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38513E71DCBEA20D0B0685F0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +31,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02DDE47F9AC569F500FF8F6F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		02F61B101ABB80EA00A4359F /* Observatory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Observatory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F61B141ABB80EA00A4359F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02F61B151ABB80EA00A4359F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02F61B171ABB80EA00A4359F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		02F61B181ABB80EA00A4359F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		02F61B1B1ABB80EA00A4359F /* Observatory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Observatory.xcdatamodel; sourceTree = "<group>"; };
-		02F61B1D1ABB80EA00A4359F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		02F61B1E1ABB80EA00A4359F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		02F61B211ABB80EA00A4359F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02F61B231ABB80EA00A4359F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		02F61B261ABB80EA00A4359F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		02F61B2C1ABB80EA00A4359F /* ObservatoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObservatoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F61B311ABB80EA00A4359F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02F61B321ABB80EA00A4359F /* ObservatoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObservatoryTests.m; sourceTree = "<group>"; };
+		02F61B411ABB84A500A4359F /* ReposTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReposTableViewController.h; sourceTree = "<group>"; };
+		02F61B421ABB84A500A4359F /* ReposTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReposTableViewController.m; sourceTree = "<group>"; };
+		02F61B451ABB86CF00A4359F /* AFGithubClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFGithubClient.h; sourceTree = "<group>"; };
+		02F61B461ABB86CF00A4359F /* AFGithubClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGithubClient.m; sourceTree = "<group>"; };
+		02F61B481ABB8FE700A4359F /* Repo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repo.h; sourceTree = "<group>"; };
+		02F61B491ABB8FE700A4359F /* Repo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repo.m; sourceTree = "<group>"; };
+		38513E71DCBEA20D0B0685F0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A63C63B1B50ADE9FFC3EFB3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BEA14D952B1B2EACD3EC8D1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +79,8 @@
 				02F61B121ABB80EA00A4359F /* Observatory */,
 				02F61B2F1ABB80EA00A4359F /* ObservatoryTests */,
 				02F61B111ABB80EA00A4359F /* Products */,
+				FBA57E3365B376123847AC77 /* Pods */,
+				3C46FF6F7655221700628EC2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,14 +96,10 @@
 		02F61B121ABB80EA00A4359F /* Observatory */ = {
 			isa = PBXGroup;
 			children = (
-				02F61B171ABB80EA00A4359F /* AppDelegate.h */,
-				02F61B181ABB80EA00A4359F /* AppDelegate.m */,
-				02F61B1D1ABB80EA00A4359F /* ViewController.h */,
-				02F61B1E1ABB80EA00A4359F /* ViewController.m */,
-				02F61B201ABB80EA00A4359F /* Main.storyboard */,
+				02F61B441ABB851B00A4359F /* Github */,
+				02F61B3D1ABB836000A4359F /* Classes */,
 				02F61B231ABB80EA00A4359F /* Images.xcassets */,
 				02F61B251ABB80EA00A4359F /* LaunchScreen.xib */,
-				02F61B1A1ABB80EA00A4359F /* Observatory.xcdatamodeld */,
 				02F61B131ABB80EA00A4359F /* Supporting Files */,
 			);
 			path = Observatory;
@@ -122,6 +131,71 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		02F61B3C1ABB834800A4359F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02F61B201ABB80EA00A4359F /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		02F61B3D1ABB836000A4359F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				02F61B171ABB80EA00A4359F /* AppDelegate.h */,
+				02F61B181ABB80EA00A4359F /* AppDelegate.m */,
+				02F61B3E1ABB838D00A4359F /* Models */,
+				02F61B3C1ABB834800A4359F /* Views */,
+				02F61B401ABB83C800A4359F /* Controllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		02F61B3E1ABB838D00A4359F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				02F61B1A1ABB80EA00A4359F /* Observatory.xcdatamodeld */,
+				02F61B481ABB8FE700A4359F /* Repo.h */,
+				02F61B491ABB8FE700A4359F /* Repo.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		02F61B401ABB83C800A4359F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				02F61B411ABB84A500A4359F /* ReposTableViewController.h */,
+				02F61B421ABB84A500A4359F /* ReposTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		02F61B441ABB851B00A4359F /* Github */ = {
+			isa = PBXGroup;
+			children = (
+				02F61B451ABB86CF00A4359F /* AFGithubClient.h */,
+				02F61B461ABB86CF00A4359F /* AFGithubClient.m */,
+			);
+			name = Github;
+			sourceTree = "<group>";
+		};
+		3C46FF6F7655221700628EC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38513E71DCBEA20D0B0685F0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBA57E3365B376123847AC77 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A63C63B1B50ADE9FFC3EFB3 /* Pods.debug.xcconfig */,
+				02DDE47F9AC569F500FF8F6F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +203,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02F61B361ABB80EA00A4359F /* Build configuration list for PBXNativeTarget "Observatory" */;
 			buildPhases = (
+				E8269797C4999A060EA4C912 /* Check Pods Manifest.lock */,
 				02F61B0C1ABB80EA00A4359F /* Sources */,
 				02F61B0D1ABB80EA00A4359F /* Frameworks */,
 				02F61B0E1ABB80EA00A4359F /* Resources */,
+				0FECAD3CCD37E0030C2DB957 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,14 +293,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FECAD3CCD37E0030C2DB957 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8269797C4999A060EA4C912 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		02F61B0C1ABB80EA00A4359F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				02F61B191ABB80EA00A4359F /* AppDelegate.m in Sources */,
+				02F61B471ABB86CF00A4359F /* AFGithubClient.m in Sources */,
 				02F61B1C1ABB80EA00A4359F /* Observatory.xcdatamodeld in Sources */,
-				02F61B1F1ABB80EA00A4359F /* ViewController.m in Sources */,
+				02F61B4A1ABB8FE700A4359F /* Repo.m in Sources */,
+				02F61B431ABB84A500A4359F /* ReposTableViewController.m in Sources */,
 				02F61B161ABB80EA00A4359F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +456,7 @@
 		};
 		02F61B371ABB80EA00A4359F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A63C63B1B50ADE9FFC3EFB3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Observatory/Info.plist;
@@ -355,6 +467,7 @@
 		};
 		02F61B381ABB80EA00A4359F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02DDE47F9AC569F500FF8F6F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Observatory/Info.plist;
@@ -416,6 +529,7 @@
 				02F61B381ABB80EA00A4359F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02F61B391ABB80EA00A4359F /* Build configuration list for PBXNativeTarget "ObservatoryTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +538,7 @@
 				02F61B3B1ABB80EA00A4359F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

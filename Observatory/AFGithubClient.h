@@ -1,15 +1,15 @@
 //
-//  ViewController.h
+//  AFGithubClient.h
 //  Observatory
 //
 //  Created by Benjamin Iannetta on 2015-03-19.
 //  Copyright (c) 2015 biannetta. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AFHTTPSessionManager.h"
 
-@interface ViewController : UIViewController
+@interface AFGithubClient : AFHTTPSessionManager
 
++ (instancetype)sharedClient;
 
 @end
-
