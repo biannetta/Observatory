@@ -18,9 +18,9 @@
         return nil;
     }
     
-    self.repoID   = (NSUInteger)[[attributes valueForKey:@"id"] integerValue];
-    self.name     = [attributes valueForKey:@"name"];
-    self.language = [attributes valueForKey:@"language"];
+    _repoID   = (NSUInteger)[[attributes valueForKey:@"id"] integerValue];
+    _name     = [attributes valueForKey:@"name"];
+    _language = [attributes valueForKey:@"language"] == (id)[NSNull null] ? @"Markdown" : [attributes valueForKey:@"language"];
     
     return self;
 }
@@ -30,6 +30,7 @@
 + (NSURLSessionDataTask *)starredReposWithBlock:(void (^)(NSArray *repos, NSError *error))block {
     return [[AFGithubClient sharedClient] GET:@"users/biannetta/starred" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *reposFromResponse = responseObject;
+        NSLog(@"%@", responseObject);
         NSMutableArray *mutableRepos = [NSMutableArray arrayWithCapacity:[reposFromResponse count]];
         for (NSDictionary *attributes in reposFromResponse) {
             Repo *repo = [[Repo alloc]initWithAttributes:attributes];

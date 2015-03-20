@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ApE-w6-aAg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="y38-UB-kTv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -18,12 +18,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAY-5M-4Ob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="514"/>
+            <point key="canvasLocation" x="134" y="490"/>
         </scene>
-        <!--Starred Repos-->
+        <!--Repos Table View Controller-->
         <scene sceneID="2UX-Fv-aly">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Eat-Ns-zgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="ApE-w6-aAg" customClass="ReposTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DID-HO-dHE">
                         <rect key="frame" x="0.0" y="94" width="600" height="600"/>
@@ -57,8 +56,9 @@
                             <outlet property="delegate" destination="ApE-w6-aAg" id="SJv-LL-akv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Starred Repos" id="te4-ur-1QV"/>
+                    <navigationItem key="navigationItem" id="te4-ur-1QV"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eat-Ns-zgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="981" y="490"/>
         </scene>

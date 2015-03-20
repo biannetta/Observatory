@@ -11,8 +11,8 @@
 @interface Repo : NSObject
 
 @property (nonatomic, assign) NSUInteger repoID;
-@property (nonatomic, assign) NSString *name;
-@property (nonatomic, assign) NSString *language;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *language;
 
 - (instancetype)initWithAttributes: (NSDictionary *)attributes;
 
