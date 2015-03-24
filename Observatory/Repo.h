@@ -13,6 +13,7 @@
 @property (nonatomic, assign) NSUInteger repoID;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *language;
+@property (nonatomic, strong) NSString *avatar;
 
 - (instancetype)initWithAttributes: (NSDictionary *)attributes;
 

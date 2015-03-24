@@ -12,6 +12,7 @@
 
 #import "UIRefreshControl+AFNetworking.h"
 #import "UIAlertView+AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ReposTableViewController ()
 @property (readwrite, nonatomic, strong) NSArray *repos;
@@ -31,6 +32,20 @@
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];
     [self.refreshControl setRefreshingWithStateOfTask:task];
+}
+
+- (void)loadMoreData {
+    NSURLSessionDataTask *task = [Repo starredReposWithBlock:^(NSArray *repos, NSError *error) {
+        if (!error) {
+            NSMutableArray *newRepos = [NSMutableArray arrayWithArray:self.repos];
+            for (int i = 0; i < [repos count]; i ++) {
+                [newRepos addObject:repos[i]];
+            }
+            self.repos = newRepos;
+            [self.tableView reloadData];
+        }
+    }];
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];
 }
 
 #pragma mark - UIViewController
@@ -64,6 +79,12 @@
     
     cell.textLabel.text = repo.name;
     cell.detailTextLabel.text = repo.language;
+    [cell.imageView setImageWithURL:[NSURL URLWithString:repo.avatar] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    
+    if (indexPath.row == [self.repos count] - 1) {
+        NSLog(@"Load more data");
+        [self loadMoreData];
+    }
     
     return cell;
 }

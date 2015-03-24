@@ -18,19 +18,50 @@
         return nil;
     }
     
-    _repoID   = (NSUInteger)[[attributes valueForKey:@"id"] integerValue];
-    _name     = [attributes valueForKey:@"name"];
-    _language = [attributes valueForKey:@"language"] == (id)[NSNull null] ? @"Markdown" : [attributes valueForKey:@"language"];
-    
+    self.repoID   = (NSUInteger)[[attributes valueForKey:@"id"] integerValue];
+    self.name     = [attributes valueForKey:@"name"];
+    self.language = [attributes valueForKey:@"language"] == (id)[NSNull null] ? @"Markdown" : [attributes valueForKey:@"language"];
+    self.avatar   = [[attributes valueForKey:@"owner"] valueForKey:@"avatar_url"];
+
     return self;
 }
 
 #pragma mark -
 
 + (NSURLSessionDataTask *)starredReposWithBlock:(void (^)(NSArray *repos, NSError *error))block {
-    return [[AFGithubClient sharedClient] GET:@"users/biannetta/starred" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    AFGithubClient *githubClient = [AFGithubClient sharedClient];
+    NSDictionary *parameters = nil;
+    
+    if (githubClient.linkURLS) {
+        NSNumber *nextPage;
+        NSNumber *lastPage;
+        
+        for (int i=0; i < [githubClient.linkURLS count]; i ++) {
+            NSArray *link = [githubClient.linkURLS[i] componentsSeparatedByString:@";"];
+            NSLog(@"%@", link);
+            if ([link[1] rangeOfString:@"next"].location != NSNotFound) {
+                nextPage = (NSNumber *)[link[0] substringWithRange:NSMakeRange([link[0] rangeOfString:@"page="].location + 5, 1)];
+                parameters = @{@"page":nextPage};
+            }
+            
+            if ([link[1] rangeOfString:@"last"].location != NSNotFound) {
+                lastPage = (NSNumber *)[link[0] substringWithRange:NSMakeRange([link[0] rangeOfString:@"page="].location + 5, 1)];
+            }
+        }
+        if (lastPage == nextPage) {
+            return nil;
+        }
+    }
+        
+    return [githubClient GET:@"users/biannetta/starred" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *reposFromResponse = responseObject;
-        NSLog(@"%@", responseObject);
+        
+        // Review HTTP Headers
+        if ([task.response respondsToSelector:@selector(allHeaderFields)]) {
+            NSHTTPURLResponse *r = (NSHTTPURLResponse *)task.response;
+            githubClient.linkURLS = [[[r allHeaderFields] valueForKey:@"Link"] componentsSeparatedByString:@","];
+        }
+        
         NSMutableArray *mutableRepos = [NSMutableArray arrayWithCapacity:[reposFromResponse count]];
         for (NSDictionary *attributes in reposFromResponse) {
             Repo *repo = [[Repo alloc]initWithAttributes:attributes];
