@@ -30,7 +30,14 @@
 
 + (NSURLSessionDataTask *)starredReposWithBlock:(void (^)(NSArray *repos, NSError *error))block {
     AFGithubClient *githubClient = [AFGithubClient sharedClient];
+    
+    if (!githubClient) {
+        return nil;
+    }
+    
     NSDictionary *parameters = nil;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *starredURL = [NSString stringWithFormat:@"users/%@/starred", [defaults stringForKey:@"username"]];
     
     if (githubClient.linkURLS) {
         NSNumber *nextPage;
@@ -38,7 +45,6 @@
         
         for (int i=0; i < [githubClient.linkURLS count]; i ++) {
             NSArray *link = [githubClient.linkURLS[i] componentsSeparatedByString:@";"];
-            NSLog(@"%@", link);
             if ([link[1] rangeOfString:@"next"].location != NSNotFound) {
                 nextPage = (NSNumber *)[link[0] substringWithRange:NSMakeRange([link[0] rangeOfString:@"page="].location + 5, 1)];
                 parameters = @{@"page":nextPage};
@@ -53,7 +59,7 @@
         }
     }
         
-    return [githubClient GET:@"users/biannetta/starred" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+    return [githubClient GET:starredURL parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *reposFromResponse = responseObject;
         
         // Review HTTP Headers

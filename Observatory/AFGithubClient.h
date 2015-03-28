@@ -13,6 +13,5 @@
 @property (nonatomic, strong) NSArray *linkURLS;
 
 + (instancetype)sharedClient;
-+ (NSString *)githubAuthenticationWithUsername:(NSString *)username andPassword:(NSString *)password;
 
 @end

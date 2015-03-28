@@ -20,9 +20,7 @@
 
 @implementation ReposTableViewController
 
-- (void)reload:(id)sender {
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    
+- (void)reload:(id)sender {    
     NSURLSessionDataTask *task = [Repo starredReposWithBlock:^(NSArray *repos, NSError *error) {
         if (!error) {
             self.repos = repos;

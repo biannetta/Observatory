@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		028A14BE1AC5EA400034726A /* GithubCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A14BD1AC5EA400034726A /* GithubCredentials.m */; };
+		028A14C11AC5F70B0034726A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A14C01AC5F70B0034726A /* LoginViewController.m */; };
+		02E513441AC32E730001BC8B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E513431AC32E730001BC8B /* User.m */; };
+		02E513471AC340F50001BC8B /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E513461AC340F50001BC8B /* SettingTableViewController.m */; };
 		02F61B161ABB80EA00A4359F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B151ABB80EA00A4359F /* main.m */; };
 		02F61B191ABB80EA00A4359F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B181ABB80EA00A4359F /* AppDelegate.m */; };
 		02F61B1C1ABB80EA00A4359F /* Observatory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B1A1ABB80EA00A4359F /* Observatory.xcdatamodeld */; };
@@ -31,7 +35,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		028A14BC1AC5EA400034726A /* GithubCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubCredentials.h; sourceTree = "<group>"; };
+		028A14BD1AC5EA400034726A /* GithubCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GithubCredentials.m; sourceTree = "<group>"; };
+		028A14BF1AC5F70B0034726A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		028A14C01AC5F70B0034726A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		02DDE47F9AC569F500FF8F6F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		02E513421AC32E730001BC8B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		02E513431AC32E730001BC8B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		02E513451AC340F50001BC8B /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		02E513461AC340F50001BC8B /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		02F61B101ABB80EA00A4359F /* Observatory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Observatory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F61B141ABB80EA00A4359F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02F61B151ABB80EA00A4359F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -157,6 +169,8 @@
 				02F61B1A1ABB80EA00A4359F /* Observatory.xcdatamodeld */,
 				02F61B481ABB8FE700A4359F /* Repo.h */,
 				02F61B491ABB8FE700A4359F /* Repo.m */,
+				02E513421AC32E730001BC8B /* User.h */,
+				02E513431AC32E730001BC8B /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -166,6 +180,10 @@
 			children = (
 				02F61B411ABB84A500A4359F /* ReposTableViewController.h */,
 				02F61B421ABB84A500A4359F /* ReposTableViewController.m */,
+				02E513451AC340F50001BC8B /* SettingTableViewController.h */,
+				02E513461AC340F50001BC8B /* SettingTableViewController.m */,
+				028A14BF1AC5F70B0034726A /* LoginViewController.h */,
+				028A14C01AC5F70B0034726A /* LoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -175,6 +193,8 @@
 			children = (
 				02F61B451ABB86CF00A4359F /* AFGithubClient.h */,
 				02F61B461ABB86CF00A4359F /* AFGithubClient.m */,
+				028A14BC1AC5EA400034726A /* GithubCredentials.h */,
+				028A14BD1AC5EA400034726A /* GithubCredentials.m */,
 			);
 			name = Github;
 			sourceTree = "<group>";
@@ -331,9 +351,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028A14BE1AC5EA400034726A /* GithubCredentials.m in Sources */,
 				02F61B191ABB80EA00A4359F /* AppDelegate.m in Sources */,
+				02E513441AC32E730001BC8B /* User.m in Sources */,
 				02F61B471ABB86CF00A4359F /* AFGithubClient.m in Sources */,
+				028A14C11AC5F70B0034726A /* LoginViewController.m in Sources */,
 				02F61B1C1ABB80EA00A4359F /* Observatory.xcdatamodeld in Sources */,
+				02E513471AC340F50001BC8B /* SettingTableViewController.m in Sources */,
 				02F61B4A1ABB8FE700A4359F /* Repo.m in Sources */,
 				02F61B431ABB84A500A4359F /* ReposTableViewController.m in Sources */,
 				02F61B161ABB80EA00A4359F /* main.m in Sources */,
