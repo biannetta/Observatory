@@ -18,5 +18,6 @@
 - (instancetype)initWithAttributes: (NSDictionary *)attributes;
 
 + (NSURLSessionDataTask *)starredReposWithBlock:(void (^)(NSArray *repos, NSError *error))block;
++ (NSURLSessionDataTask *)starredReposWithParameters:(NSDictionary *)parameters andBlock:(void (^)(NSArray *, NSError *))block;
 
 @end

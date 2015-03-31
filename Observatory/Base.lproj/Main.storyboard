@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HiW-Gm-WD1">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -174,11 +175,12 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gvK-jS-BO7" id="7tW-ru-AsO">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8y-fR-2eO">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8y-fR-2eO">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Logout">
-                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="deleteUserSettings:" destination="naP-rI-3CW" eventType="touchUpInside" id="1Ff-XI-eK2"/>
@@ -186,7 +188,14 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="t8y-fR-2eO" firstAttribute="trailing" secondItem="7tW-ru-AsO" secondAttribute="trailingMargin" id="0Oc-YO-50k"/>
+                                                <constraint firstItem="t8y-fR-2eO" firstAttribute="leading" secondItem="7tW-ru-AsO" secondAttribute="leadingMargin" id="7xL-bf-bBJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="t8y-fR-2eO" secondAttribute="bottom" constant="-2" id="OYZ-vO-NTu"/>
+                                                <constraint firstItem="t8y-fR-2eO" firstAttribute="top" secondItem="7tW-ru-AsO" secondAttribute="topMargin" constant="-1" id="SQr-i1-j8G"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -214,6 +223,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="settings" width="16" height="16"/>
+        <image name="settings" width="25" height="25"/>
     </resources>
 </document>

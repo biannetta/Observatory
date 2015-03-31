@@ -9,6 +9,7 @@
 #import "SettingTableViewController.h"
 
 #import "User.h"
+#import "AFGithubClient.h"
 
 #import "UIAlertView+AFNetworking.h"
 
@@ -49,7 +50,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing Info"
                                                         message:@"Username/Password are required fields"
                                                        delegate:self
-                                              cancelButtonTitle:@"Cancel"
+                                              cancelButtonTitle:@"Okay"
                                               otherButtonTitles:nil];
         [alert show];
     }
@@ -59,15 +60,10 @@
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
     
+    [AFGithubClient clearAuthentication];
+    
     self.username.text = @"";
     self.password.text = @"";
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Logged Out"
-                                                    message:@"Cleared User Settings"
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
 }
 
 @end

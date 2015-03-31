@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GithubCredentials : NSURLSessionConfiguration
+@interface GithubCredentials : NSObject
 
-- (instancetype)initWithCredentials:(NSDictionary *)credentials;
++ (NSString *)sharedConfiguration;
+
+- (void)initWithCredentials:(NSDictionary *)credentials;
 - (NSString *)githubAuthenticationWithUsername:(NSString *)username andPassword:(NSString *)password;
 
 @end

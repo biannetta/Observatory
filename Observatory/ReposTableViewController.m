@@ -14,16 +14,27 @@
 #import "UIAlertView+AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 
+#define REQUEST_PER_PAGE 30
+
 @interface ReposTableViewController ()
 @property (readwrite, nonatomic, strong) NSArray *repos;
+@property (readwrite, nonatomic, strong) NSNumber *pageRequest;
+@property (readwrite, nonatomic, strong) NSNumber *latestRequestSize;
 @end
 
 @implementation ReposTableViewController
 
-- (void)reload:(id)sender {    
-    NSURLSessionDataTask *task = [Repo starredReposWithBlock:^(NSArray *repos, NSError *error) {
+- (void)reload:(id)sender {
+    self.pageRequest = @1;
+    
+    NSDictionary *parameters = @{@"page" : self.pageRequest, @"per_page" : @REQUEST_PER_PAGE};
+    
+    NSURLSessionDataTask *task = [Repo starredReposWithParameters:parameters andBlock:^(NSArray *repos, NSError *error) {
         if (!error) {
+            self.latestRequestSize = [[NSNumber alloc] initWithUnsignedLong:[repos count]];
             self.repos = repos;
+            int value = [self.pageRequest intValue];
+            self.pageRequest = [[NSNumber alloc] initWithInt:value+1];
             [self.tableView reloadData];
         }
     }];
@@ -33,13 +44,24 @@
 }
 
 - (void)loadMoreData {
-    NSURLSessionDataTask *task = [Repo starredReposWithBlock:^(NSArray *repos, NSError *error) {
-        if (!error) {
+    // If the lastest request was less than the request size, no more data to retrieve
+    if (self.latestRequestSize < [[NSNumber alloc] initWithInt:REQUEST_PER_PAGE]) {
+        NSLog(@"No More Data");
+        return;
+    }
+    
+    NSDictionary *parameters = @{@"page" : self.pageRequest, @"per_page" : @REQUEST_PER_PAGE};
+    
+    NSURLSessionDataTask *task = [Repo starredReposWithParameters:parameters andBlock:^(NSArray *repos, NSError *error) {
+        if (!error && [repos count] != 0) {
             NSMutableArray *newRepos = [NSMutableArray arrayWithArray:self.repos];
             for (int i = 0; i < [repos count]; i ++) {
                 [newRepos addObject:repos[i]];
             }
             self.repos = newRepos;
+            self.latestRequestSize = [[NSNumber alloc] initWithUnsignedLong:[repos count]];
+            int value = [self.pageRequest intValue];
+            self.pageRequest = [[NSNumber alloc] initWithInt:value+1];
             [self.tableView reloadData];
         }
     }];

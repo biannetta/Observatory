@@ -18,10 +18,13 @@ static NSString * const AFGithubAPIBaseURL = @"https://api.github.com/";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedClient = [[AFGithubClient alloc] initWithBaseURL:[NSURL URLWithString:AFGithubAPIBaseURL]];
-        _sharedClient.linkURLS = nil;
     });
     
     return _sharedClient;
+}
+
++ (void)clearAuthentication {
+    [[[self sharedClient] requestSerializer] setValue:nil forHTTPHeaderField:@"Authorization"];
 }
 
 @end

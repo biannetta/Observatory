@@ -9,14 +9,14 @@
 #import "GithubCredentials.h"
 
 @implementation GithubCredentials
+static NSString *_config = nil;
 
-- (instancetype)initWithCredentials:(NSDictionary *)credentials {
-    static GithubCredentials * _config = nil;
-    
-    _config = (GithubCredentials *)[NSURLSessionConfiguration defaultSessionConfiguration];
-    [_config setHTTPAdditionalHeaders:@{@"Authorization" : [self githubAuthenticationWithUsername:[credentials valueForKey:@"username"] andPassword:[credentials valueForKey:@"password"]]}];
-    
++ (NSString *)sharedConfiguration {
     return _config;
+}
+
+- (void)initWithCredentials:(NSDictionary *)credentials {
+    _config = [self githubAuthenticationWithUsername:[credentials valueForKey:@"username"] andPassword:[credentials valueForKey:@"password"]];
 }
 
 - (NSString *)githubAuthenticationWithUsername:(NSString *)username andPassword:(NSString *)password {

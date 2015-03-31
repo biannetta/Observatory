@@ -8,6 +8,7 @@
 
 #import "User.h"
 #import "AFGithubClient.h"
+#import "GithubCredentials.h"
 
 static NSString * const GithubUserURL = @"user";
 
@@ -15,12 +16,11 @@ static NSString * const GithubUserURL = @"user";
 
 #pragma mark NSCoding
 
-+ (NSURLSessionDataTask *)authenticateUserWithBlock:(void (^)(NSDictionary *response, NSError *error))block {    
++ (NSURLSessionDataTask *)authenticateUserWithBlock:(void (^)(NSDictionary *response, NSError *error))block {
+    [[[AFGithubClient sharedClient] requestSerializer] setValue:[GithubCredentials sharedConfiguration] forHTTPHeaderField:@"Authorization"];
     return [[AFGithubClient sharedClient] GET:GithubUserURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        // Review HTTP Headers
-        if ([task.response respondsToSelector:@selector(allHeaderFields)]) {
-            NSHTTPURLResponse *r = (NSHTTPURLResponse *)task.response;
-            NSLog(@"%@", r);
+        if (block) {
+            block(responseObject, nil);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         if (block) {

@@ -10,8 +10,7 @@
 
 @interface AFGithubClient : AFHTTPSessionManager
 
-@property (nonatomic, strong) NSArray *linkURLS;
-
 + (instancetype)sharedClient;
++ (void)clearAuthentication;
 
 @end
