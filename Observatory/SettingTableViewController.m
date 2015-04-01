@@ -24,36 +24,6 @@
 #pragma mark UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    self.username.text = [defaults stringForKey:@"username"];
-    self.password.text = [defaults stringForKey:@"password"];
-}
-
-- (IBAction)saveUserSettings:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *username = self.username.text;
-    NSString *password = self.password.text;
-    
-    if (username.length > 0 && password.length > 0) {
-        [defaults setValue:username forKey:@"username"];
-        [defaults setValue:password forKey:@"password"];
-        
-        NSURLSessionDataTask *task = [User authenticateUserWithBlock:^(NSDictionary *response, NSError *error) {
-            if (!error) {
-                NSLog(@"%@", response);
-            }
-        }];
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];
-        
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing Info"
-                                                        message:@"Username/Password are required fields"
-                                                       delegate:self
-                                              cancelButtonTitle:@"Okay"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
 }
 
 - (IBAction)deleteUserSettings:(id)sender {
@@ -61,9 +31,6 @@
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
     
     [AFGithubClient clearAuthentication];
-    
-    self.username.text = @"";
-    self.password.text = @"";
 }
 
 @end

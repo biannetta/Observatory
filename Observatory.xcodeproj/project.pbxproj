@@ -21,6 +21,8 @@
 		02F61B431ABB84A500A4359F /* ReposTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B421ABB84A500A4359F /* ReposTableViewController.m */; };
 		02F61B471ABB86CF00A4359F /* AFGithubClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B461ABB86CF00A4359F /* AFGithubClient.m */; };
 		02F61B4A1ABB8FE700A4359F /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B491ABB8FE700A4359F /* Repo.m */; };
+		02FEA1E01ACB616F0051E00F /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FEA1DF1ACB616F0051E00F /* UserProfileViewController.m */; };
+		02FEA1E31ACB9D350051E00F /* RepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FEA1E21ACB9D350051E00F /* RepoViewController.m */; };
 		6BEA14D952B1B2EACD3EC8D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38513E71DCBEA20D0B0685F0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,10 @@
 		02F61B461ABB86CF00A4359F /* AFGithubClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGithubClient.m; sourceTree = "<group>"; };
 		02F61B481ABB8FE700A4359F /* Repo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repo.h; sourceTree = "<group>"; };
 		02F61B491ABB8FE700A4359F /* Repo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repo.m; sourceTree = "<group>"; };
+		02FEA1DE1ACB616F0051E00F /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		02FEA1DF1ACB616F0051E00F /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		02FEA1E11ACB9D350051E00F /* RepoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoViewController.h; sourceTree = "<group>"; };
+		02FEA1E21ACB9D350051E00F /* RepoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoViewController.m; sourceTree = "<group>"; };
 		38513E71DCBEA20D0B0685F0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A63C63B1B50ADE9FFC3EFB3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +190,10 @@
 				02E513461AC340F50001BC8B /* SettingTableViewController.m */,
 				028A14BF1AC5F70B0034726A /* LoginViewController.h */,
 				028A14C01AC5F70B0034726A /* LoginViewController.m */,
+				02FEA1DE1ACB616F0051E00F /* UserProfileViewController.h */,
+				02FEA1DF1ACB616F0051E00F /* UserProfileViewController.m */,
+				02FEA1E11ACB9D350051E00F /* RepoViewController.h */,
+				02FEA1E21ACB9D350051E00F /* RepoViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -355,9 +365,11 @@
 				02F61B191ABB80EA00A4359F /* AppDelegate.m in Sources */,
 				02E513441AC32E730001BC8B /* User.m in Sources */,
 				02F61B471ABB86CF00A4359F /* AFGithubClient.m in Sources */,
+				02FEA1E31ACB9D350051E00F /* RepoViewController.m in Sources */,
 				028A14C11AC5F70B0034726A /* LoginViewController.m in Sources */,
 				02F61B1C1ABB80EA00A4359F /* Observatory.xcdatamodeld in Sources */,
 				02E513471AC340F50001BC8B /* SettingTableViewController.m in Sources */,
+				02FEA1E01ACB616F0051E00F /* UserProfileViewController.m in Sources */,
 				02F61B4A1ABB8FE700A4359F /* Repo.m in Sources */,
 				02F61B431ABB84A500A4359F /* ReposTableViewController.m in Sources */,
 				02F61B161ABB80EA00A4359F /* main.m in Sources */,

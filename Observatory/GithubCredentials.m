@@ -9,19 +9,18 @@
 #import "GithubCredentials.h"
 
 @implementation GithubCredentials
-static NSString *_config = nil;
 
-+ (NSString *)sharedConfiguration {
-    return _config;
++ (NSString *)createLoginCredentials:(NSDictionary *)credentials {
+    return [self githubBasicAuthenticationWithUsername:[credentials valueForKey:@"username"] andPassword:[credentials valueForKey:@"password"]];
 }
 
-- (void)initWithCredentials:(NSDictionary *)credentials {
-    _config = [self githubAuthenticationWithUsername:[credentials valueForKey:@"username"] andPassword:[credentials valueForKey:@"password"]];
-}
-
-- (NSString *)githubAuthenticationWithUsername:(NSString *)username andPassword:(NSString *)password {
++ (NSString *)githubBasicAuthenticationWithUsername:(NSString *)username andPassword:(NSString *)password {
     NSData *data = [[NSString stringWithFormat:@"%@:%@", username, password] dataUsingEncoding:NSUTF8StringEncoding];
     return [NSString stringWithFormat:@"Basic %@", [data base64EncodedStringWithOptions:0]];
+}
+
++ (NSString *)getBasicAuthentication {
+    return [[NSUserDefaults standardUserDefaults] stringForKey:@"basic_auth"];
 }
 
 @end

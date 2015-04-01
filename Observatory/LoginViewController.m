@@ -24,7 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.githubLogo setImage:[UIImage imageNamed:@"github_logo"]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -32,9 +31,6 @@
     
     if ([defaults stringForKey:@"username"].length != 0) {
         [self performSegueWithIdentifier:@"loginSuccess" sender:self];
-        NSLog(@"logged in");
-    } else {
-        NSLog(@"not logged in");
     }
 }
 
@@ -51,8 +47,9 @@
     if (username.length > 0 && password.length > 0) {
         [defaults setValue:username forKey:@"username"];
         [defaults setValue:password forKey:@"password"];
+        [defaults setValue:[GithubCredentials createLoginCredentials:@{@"username":username, @"password":password}]
+                    forKey:@"basic_auth"];
         
-        [[GithubCredentials alloc] initWithCredentials:@{@"username":username, @"password":password}];
         [User authenticateUserWithBlock:^(NSDictionary *response, NSError *error) {
             NSLog(@"%@", error);
             if (!error) {
@@ -75,16 +72,5 @@
         [alert show];
     }
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

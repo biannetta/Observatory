@@ -14,8 +14,13 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *language;
 @property (nonatomic, strong) NSString *avatar;
+@property (nonatomic, strong) NSNumber *stars;
+@property (nonatomic, strong) NSNumber *forks;
+@property (nonatomic, strong) NSString *owner;
+@property (nonatomic, strong) NSString *repoURL;
 
 - (instancetype)initWithAttributes: (NSDictionary *)attributes;
+- (NSURLSessionDataTask *)unstarRepo;
 
 + (NSURLSessionDataTask *)starredReposWithBlock:(void (^)(NSArray *repos, NSError *error))block;
 + (NSURLSessionDataTask *)starredReposWithParameters:(NSDictionary *)parameters andBlock:(void (^)(NSArray *, NSError *))block;

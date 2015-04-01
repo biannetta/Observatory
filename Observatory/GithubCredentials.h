@@ -10,9 +10,8 @@
 
 @interface GithubCredentials : NSObject
 
-+ (NSString *)sharedConfiguration;
-
-- (void)initWithCredentials:(NSDictionary *)credentials;
-- (NSString *)githubAuthenticationWithUsername:(NSString *)username andPassword:(NSString *)password;
++ (NSString *)createLoginCredentials:(NSDictionary *)credentials;
++ (NSString *)githubBasicAuthenticationWithUsername:(NSString *)username andPassword:(NSString *)password;
++ (NSString *)getBasicAuthentication;
 
 @end

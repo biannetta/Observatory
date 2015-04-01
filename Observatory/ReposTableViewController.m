@@ -7,6 +7,7 @@
 //
 
 #import "ReposTableViewController.h"
+#import "RepoViewController.h"
 
 #import "Repo.h"
 
@@ -45,7 +46,7 @@
 
 - (void)loadMoreData {
     // If the lastest request was less than the request size, no more data to retrieve
-    if (self.latestRequestSize < [[NSNumber alloc] initWithInt:REQUEST_PER_PAGE]) {
+    if ([self.latestRequestSize intValue] < REQUEST_PER_PAGE) {
         NSLog(@"No More Data");
         return;
     }
@@ -82,6 +83,16 @@
     self.tableView.rowHeight = 70.0f;
     
     [self reload:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    Repo *repo = self.repos[path.row];
+    
+    if ([[segue identifier] isEqualToString:@"repo_detail"]) {
+        RepoViewController *vc = [segue destinationViewController];
+        [vc setDetail:repo];
+    }
 }
 
 #pragma mark - UITableViewDataSource
