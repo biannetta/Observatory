@@ -73,16 +73,20 @@ static NSString * const GithubUnstarRepoURL = @"user/starred/%@/%@";
 
 }
 
-- (NSURLSessionDataTask *)unstarRepo {
+- (NSURLSessionDataTask *)unstarRepoWithBlock:(void (^)(NSDictionary *response, NSError *error))block {
     AFGithubClient *githubClient = [AFGithubClient sharedClient];
     [[githubClient requestSerializer] setValue:[GithubCredentials getBasicAuthentication] forHTTPHeaderField:@"Authorization"];
     
     NSString *unstarURL = [NSString stringWithFormat:GithubUnstarRepoURL, self.owner, self.name];
     NSLog(@"%@", unstarURL);
     return [githubClient DELETE:unstarURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"%@", responseObject);
+        if (block) {
+            block(responseObject, nil);
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        if (block) {
+            block([NSDictionary dictionary], error);
+        }
     }];
 }
 

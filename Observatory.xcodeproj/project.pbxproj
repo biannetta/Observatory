@@ -14,7 +14,6 @@
 		02F61B161ABB80EA00A4359F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B151ABB80EA00A4359F /* main.m */; };
 		02F61B191ABB80EA00A4359F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B181ABB80EA00A4359F /* AppDelegate.m */; };
 		02F61B1C1ABB80EA00A4359F /* Observatory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B1A1ABB80EA00A4359F /* Observatory.xcdatamodeld */; };
-		02F61B221ABB80EA00A4359F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F61B201ABB80EA00A4359F /* Main.storyboard */; };
 		02F61B241ABB80EA00A4359F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02F61B231ABB80EA00A4359F /* Images.xcassets */; };
 		02F61B271ABB80EA00A4359F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F61B251ABB80EA00A4359F /* LaunchScreen.xib */; };
 		02F61B331ABB80EA00A4359F /* ObservatoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B321ABB80EA00A4359F /* ObservatoryTests.m */; };
@@ -23,6 +22,7 @@
 		02F61B4A1ABB8FE700A4359F /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F61B491ABB8FE700A4359F /* Repo.m */; };
 		02FEA1E01ACB616F0051E00F /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FEA1DF1ACB616F0051E00F /* UserProfileViewController.m */; };
 		02FEA1E31ACB9D350051E00F /* RepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FEA1E21ACB9D350051E00F /* RepoViewController.m */; };
+		02FEA1E61ACDA1940051E00F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02FEA1E41ACDA1940051E00F /* Main.storyboard */; };
 		6BEA14D952B1B2EACD3EC8D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38513E71DCBEA20D0B0685F0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,6 @@
 		02F61B171ABB80EA00A4359F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		02F61B181ABB80EA00A4359F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		02F61B1B1ABB80EA00A4359F /* Observatory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Observatory.xcdatamodel; sourceTree = "<group>"; };
-		02F61B211ABB80EA00A4359F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02F61B231ABB80EA00A4359F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		02F61B261ABB80EA00A4359F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		02F61B2C1ABB80EA00A4359F /* ObservatoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObservatoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +67,7 @@
 		02FEA1DF1ACB616F0051E00F /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		02FEA1E11ACB9D350051E00F /* RepoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoViewController.h; sourceTree = "<group>"; };
 		02FEA1E21ACB9D350051E00F /* RepoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoViewController.m; sourceTree = "<group>"; };
+		02FEA1E51ACDA1940051E00F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38513E71DCBEA20D0B0685F0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A63C63B1B50ADE9FFC3EFB3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,7 +152,7 @@
 		02F61B3C1ABB834800A4359F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				02F61B201ABB80EA00A4359F /* Main.storyboard */,
+				02FEA1E41ACDA1940051E00F /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02F61B221ABB80EA00A4359F /* Main.storyboard in Resources */,
+				02FEA1E61ACDA1940051E00F /* Main.storyboard in Resources */,
 				02F61B271ABB80EA00A4359F /* LaunchScreen.xib in Resources */,
 				02F61B241ABB80EA00A4359F /* Images.xcassets in Resources */,
 			);
@@ -395,20 +395,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		02F61B201ABB80EA00A4359F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				02F61B211ABB80EA00A4359F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		02F61B251ABB80EA00A4359F /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				02F61B261ABB80EA00A4359F /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		02FEA1E41ACDA1940051E00F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02FEA1E51ACDA1940051E00F /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

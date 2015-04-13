@@ -10,8 +10,9 @@
 
 #import "Repo.h"
 
-@interface RepoViewController : UIViewController
+@interface RepoViewController : UIViewController <UIAlertViewDelegate>
 
 - (void)setDetail:(Repo *)detail;
+- (void)onDeletion:(void (^)(void))block;
 
 @end

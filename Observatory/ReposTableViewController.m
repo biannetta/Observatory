@@ -15,10 +15,10 @@
 #import "UIAlertView+AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 
-#define REQUEST_PER_PAGE 30
+#define REQUEST_PER_PAGE 50
 
 @interface ReposTableViewController ()
-@property (readwrite, nonatomic, strong) NSArray *repos;
+@property (readwrite, nonatomic, strong) NSMutableArray *repos;
 @property (readwrite, nonatomic, strong) NSNumber *pageRequest;
 @property (readwrite, nonatomic, strong) NSNumber *latestRequestSize;
 @end
@@ -33,7 +33,7 @@
     NSURLSessionDataTask *task = [Repo starredReposWithParameters:parameters andBlock:^(NSArray *repos, NSError *error) {
         if (!error) {
             self.latestRequestSize = [[NSNumber alloc] initWithUnsignedLong:[repos count]];
-            self.repos = repos;
+            self.repos = [[NSMutableArray alloc] initWithArray:repos];
             int value = [self.pageRequest intValue];
             self.pageRequest = [[NSNumber alloc] initWithInt:value+1];
             [self.tableView reloadData];
@@ -69,7 +69,7 @@
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];
 }
 
-#pragma mark - UIViewController
+#pragma mark - UITableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -92,8 +92,24 @@
     if ([[segue identifier] isEqualToString:@"repo_detail"]) {
         RepoViewController *vc = [segue destinationViewController];
         [vc setDetail:repo];
+        [vc onDeletion:^{
+            [self.repos removeObjectAtIndex:path.row];
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationRight];
+            [self.tableView reloadData];
+        }];
     }
 }
+
+// TODO: maybe reimplement inrow deletion
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return YES;
+//}
+//
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [self.repos removeObjectAtIndex:(NSUInteger)indexPath.row];
+//    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    [tableView reloadData];
+//}
 
 #pragma mark - UITableViewDataSource
 
@@ -119,4 +135,5 @@
     
     return cell;
 }
+
 @end
